@@ -89,7 +89,7 @@ bool compute_nbtp(uint32_t baudrate, CAN_NBTP_Type &result) {
     return false;
   }
   result.bit.NTSEG1 = DIV_ROUND(clocks_to_sample, divisor) - 2;
-  result.bit.NTSEG2 = DIV_ROUND(clocks_after_sample, divisor) - 2;
+  result.bit.NTSEG2 = DIV_ROUND(clocks_after_sample, divisor) - 1;
   result.bit.NBRP = divisor - 1;
   result.bit.NSJW = DIV_ROUND(clocks_after_sample, divisor * 4);
   return true;
